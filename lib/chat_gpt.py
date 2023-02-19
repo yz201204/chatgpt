@@ -16,3 +16,8 @@ class ChatGPT:
         )
         message = completions.choices[0].text
         return message
+
+
+if __name__ == '__main__':
+    c = ChatGPT()
+    print(c.chat("你好"))
