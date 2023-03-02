@@ -5,19 +5,28 @@ openai.api_key = api_key
 
 
 class ChatGPT:
-    def chat(self, prompt, model_engine="text-davinci-003"):
-        completions = openai.Completion.create(
-            engine=model_engine,
-            prompt=prompt,
-            max_tokens=2048,
-            n=1,
-            stop=None,
-            temperature=0.5
-        )
-        message = completions.choices[0].text
-        return message
+    def __init__(self):
+        self.message = [
+            {"role": "system", "content": "你是一个AI机器人助手。"}
+        ]
+
+    def chat(self, user="", model="gpt-3.5-turbo"):
+        while True:
+            if user.strip() == "结束":
+                break
+            self.message.append({"role": "user", "content": user.strip()})
+            response = openai.ChatCompletion.create(
+                model=model,
+                messages=self.message
+            )
+            result = ""
+            for choice in response.choices:
+                result += choice.message.content
+            print(result)
+            self.message.append({"role": "assistant", "content": result.strip()})
+            return result
 
 
 if __name__ == '__main__':
     c = ChatGPT()
-    print(c.chat("你好"))
+    print(c.chat("chatGPT接口不如网页版"))
