@@ -1,8 +1,12 @@
+import os
+
 import openai
 from config.api_key import api_key
 
-openai.api_key = api_key
+openai.api_key = "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"
 
+os.environ["HTTP_PROXY"] = "119.45.177.140:7890"
+os.environ["HTTPS_PROXY"] = "119.45.177.140:7890"
 model = "gpt-3.5-turbo"
 message = [
         {"role": "system", "content": "你是一个AI机器人助手。"}

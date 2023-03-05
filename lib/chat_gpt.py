@@ -1,7 +1,10 @@
 import openai
 from config.api_key import api_key
+import os
 
 openai.api_key = api_key
+os.environ["HTTP_PROXY"] = "119.45.177.140:7890"
+os.environ["HTTPS_PROXY"] = "119.45.177.140:7890"
 
 
 class ChatGPT:
@@ -9,6 +12,8 @@ class ChatGPT:
         self.message = [
             {"role": "system", "content": "你是一个AI机器人助手。"}
         ]
+        os.environ["HTTP_PROXY"] = "119.45.177.140:7890"
+        os.environ["HTTPS_PROXY"] = "119.45.177.140:7890"
 
     def chat(self, user="", model="gpt-3.5-turbo"):
         while True:
@@ -29,4 +34,6 @@ class ChatGPT:
 
 if __name__ == '__main__':
     c = ChatGPT()
+    os.environ["HTTP_PROXY"] = "119.45.177.140:7890"
+    os.environ["HTTPS_PROXY"] = "119.45.177.140:7890"
     print(c.chat("chatGPT接口不如网页版"))
