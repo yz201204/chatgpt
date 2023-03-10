@@ -8,8 +8,11 @@ from lib.ding_msg_controller import DingMsgController
 from lib.send_ding_msg import SendDingMsg
 import json
 import time
+import os
 
 chat_gpt_api = Blueprint('chat_gpt_api', __name__)
+os.environ["HTTP_PROXY"] = "119.45.177.140:7890"
+os.environ["HTTPS_PROXY"] = "119.45.177.140:7890"
 
 
 @chat_gpt_api.route('/', methods=['GET'])
@@ -34,3 +37,11 @@ def at_ding_talk():
         return {"code": 0, "status": 200, "msg": comment}
     else:
         return {"code": 9999, "status": 405, "msg": "Method not allowed"}
+
+
+# 处理钉钉机器人outgoing msg
+@chat_gpt_api.route('/debug', methods=['GET'])
+def at_ding_talk_debug():
+    msg = request.args.get("msg")
+    comment = DingMsgController().main(msg)
+    return {"code": 0, "status": 200, "msg": comment}
