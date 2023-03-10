@@ -67,9 +67,9 @@ class ShenZhou:
 
     def orders(self, start_date="", end_date=""):
         if start_date == "" and end_date == "":
-            date = arrow.now().format("YYYY-MM-DD")
-            start_date = str(int(arrow.Arrow(*map(int, date.split('-'))).timestamp()))
-            end_date = str(int(arrow.Arrow(*map(int, date.split('-'))).shift(days=1).timestamp()))
+            date = arrow.now(tz='Asia/Shanghai').format("YYYY-MM-DD")
+            start_date = str(int(arrow.Arrow(*map(int, date.split('-')), tzinfo='Asia/Shanghai').timestamp()))
+            end_date = str(int(arrow.Arrow(*map(int, date.split('-')), tzinfo='Asia/Shanghai').shift(days=1).timestamp()))
         url = "http://developer.10101111.com/authorization/manager/orders"
         data = {
             "appId": self.app_id,
