@@ -31,7 +31,7 @@ def atDingTalk():
         session_webhook = post_form['sessionWebhook']
         logger.info("sessionWebhook====" + session_webhook)
         logger.info('atDingTalkMsg=====' + msg)
-        comment = DingMsgController().main(msg)
+        comment = str(DingMsgController().main(msg))
         SendDingMsg().send_msg(session_webhook, comment, at_dingtalk_ids=[sender_id])
         return {"code": 0, "status": 200, "msg": comment}
     else:
