@@ -245,8 +245,8 @@ class ShenZhou:
         text = self.orders(start_date, end_date)
         order_id = self.get_order_id(text)
         if order_id:
-            res = self.order_change(order_id, fees=fees)
-            return res
+            self.order_change(order_id, fees=fees)
+            return "神州接列表第一单成功"
 
 
 if __name__ == '__main__':
