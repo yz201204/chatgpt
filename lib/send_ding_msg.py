@@ -1,6 +1,7 @@
 # *_*coding:utf-8 *_*
 __author__ = 'zhe.yang'
 
+# import requests
 from utils.Log import logger
 from dingtalkchatbot.chatbot import DingtalkChatbot
 from lib.webhook_utils import WebHook
@@ -20,6 +21,16 @@ class SendDingMsg(object):
             logger.info(info)
         except Exception as send_error:
             logger.error("send_msg error: %s", send_error)
+
+    def send_lk(self, webhook, title, text, message_url):
+        try:
+            ding = DingtalkChatbot(webhook)
+            # 发送请求
+            info = ding.send_link(title, text, message_url)
+            logger.info("send ding link======")
+            logger.info(info)
+        except Exception as send_error:
+            logger.error("send_link error: %s", send_error)
 
     def send_md(self, webhook, title, text):
         '''

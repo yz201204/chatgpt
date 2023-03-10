@@ -22,15 +22,13 @@ class WebHook:
     def get_token(self):
         return self.ding.get(self.robot).get("token")
 
-    def get_webhook(self, timestamp=None):
+    def get_webhook(self, timestamp):
         if self.get_sign() is None:
             return "https://oapi.dingtalk.com/robot/send?access_token={}".format(self.get_token())
-        if timestamp is None:
-            timestamp = Arrow.get_timestamp()
         sign = DingTalkSign(timestamp, self.get_sign()).sign()
         return "https://oapi.dingtalk.com/robot/send?access_token={}&timestamp={}&sign={}".format(self.get_token(), timestamp, sign)
 
 
 if __name__ == '__main__':
-    w = WebHook("chatGPT")
-    print(w.get_webhook())
+    w = WebHook("小贝")
+    print(w.get_webhook(Arrow.get_timestamp()))

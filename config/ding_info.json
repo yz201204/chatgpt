@@ -3,5 +3,22 @@
     "secret": "yDHlOupApsHlbwOII3iIy04qXWNm_NoTJcHqQkhhB1o4SnMwDKXjaDSi9M43pJKV",
     "token": "37a0d7625af73a32d84c0ac65bb77efa1337ba62502620d7fd892d7f03d15b84",
     "app_key": "dingyk76bg4u4cwj37ik"
+  },
+  "测试": {
+    "secret": "SEC2aa0116b968b74ca5963a935889cc945464815d6f7d5a727981de4c1a12d96e8",
+    "token": "16050d06b082d868d019845bba35db98b4080b85f100a2f3effa276f2c01c79b"
+  },
+  "调试": {
+    "secret": "SEC555f3d3f12c75db3394cd50670ee21d803d89e53d5d6064206a18ecebe3a2c93",
+    "token": "805c677826d2f6408f0631d68b17bcef584fb89c75009d3314affa0f81cbfffb"
+  },
+  "平台产研部质量沟通群": {
+    "secret": "SECc092c4e607ce25f6f239995b5d00ed464154dd05e0cbff5710484db8adcd0186",
+    "token": "828d141a1f51ef9337d5a6dd39f0dfb9c3c182b5741fd8d68c67b8ff697a5225"
+  },
+  "小贝": {
+    "secret": "yDHlOupApsHlbwOII3iIy04qXWNm_NoTJcHqQkhhB1o4SnMwDKXjaDSi9M43pJKV",
+    "token": "37a0d7625af73a32d84c0ac65bb77efa1337ba62502620d7fd892d7f03d15b84",
+    "app_key": "dingyk76bg4u4cwj37ik"
   }
 }
