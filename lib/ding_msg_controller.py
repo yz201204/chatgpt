@@ -35,7 +35,7 @@ class DingMsgController(object):
         """
         self.demo_list_method()
         self.demo_msg += "\n".join("{}、{}".format(i, j) for i, j in enumerate(self.demo_list, 1))
-        logger.info('=' * 10 + '@机器人 原始消息体如下：' + message)
+        logger.info('=' * 10 + '@机器人 原始消息体如下：' + str(message))
         if message == "" or message is None:
             return ""
         elif message == 'demo':

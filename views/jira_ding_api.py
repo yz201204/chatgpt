@@ -1,6 +1,7 @@
 # *_*coding:utf-8 *_*
 __author__ = 'zhe.yang'
 
+import requests
 from flask import request, jsonify
 from flask import Blueprint
 from utils.Log import logger
@@ -35,3 +36,11 @@ def atDingTalk():
         return {"code": 0, "status": 200, "msg": comment}
     else:
         return {"code": 9999, "status": 405, "msg": "Method not allowed"}
+
+
+# 处理钉钉机器人outgoing msg
+@jira_ding_api.route('/msg', methods=['GET'])
+def msg():
+    content = request.args.get("msg")
+    comment = DingMsgController().main(content)
+    return {"code": 0, "status": 200, "msg": comment}
