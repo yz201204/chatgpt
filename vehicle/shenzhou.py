@@ -247,6 +247,7 @@ class ShenZhou:
         if order_id:
             self.order_change(order_id, fees=fees)
             return "神州接列表第一单成功"
+        return "没查到订单信息"
 
 
 if __name__ == '__main__':
